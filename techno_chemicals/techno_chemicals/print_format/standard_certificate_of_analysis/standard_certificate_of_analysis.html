@@ -1,0 +1,118 @@
+
+<div style="font-family: Arial, sans-serif; color: #1a202c; padding: 20px; border: 2px solid #2b6cb0; border-radius: 6px;">
+    <!-- HEADER -->
+    <div style="border-bottom: 2px solid #2b6cb0; padding-bottom: 15px; margin-bottom: 20px; text-align: center;">
+        <h2 style="margin: 0; color: #1a365d; font-size: 24px; text-transform: uppercase; letter-spacing: 1px;">Techno Print Chemicals Private Limited</h2>
+        <p style="margin: 4px 0; font-size: 12px; color: #4a5568;">Manufacturers of High Performance Liquid Inks for Flexible Packaging & Rotogravure</p>
+        <p style="margin: 2px 0; font-size: 11px; color: #718096;">Plot No. 42-B, SIPCOT Industrial Complex, Phase-I, Hosur - 635126, Tamil Nadu, India | ISO 9001:2015 Certified</p>
+        <div style="margin-top: 10px; background-color: #2b6cb0; color: white; padding: 6px 15px; display: inline-block; font-weight: bold; font-size: 15px; border-radius: 4px; letter-spacing: 0.5px;">
+            CERTIFICATE OF ANALYSIS (COA)
+        </div>
+    </div>
+
+    <!-- DOCUMENT DETAILS -->
+    <table style="width: 100%; border-collapse: collapse; margin-bottom: 15px; font-size: 12px;">
+        <tr>
+            <td style="width: 20%; font-weight: bold; padding: 4px; color: #4a5568;">COA Reference No:</td>
+            <td style="width: 30%; padding: 4px; font-weight: bold;">{{ doc.name }}</td>
+            <td style="width: 20%; font-weight: bold; padding: 4px; color: #4a5568;">Date of Release:</td>
+            <td style="width: 30%; padding: 4px;">{{ frappe.utils.format_date(doc.approval_date or frappe.utils.today()) }}</td>
+        </tr>
+        <tr>
+            <td style="font-weight: bold; padding: 4px; color: #4a5568;">Product Name:</td>
+            <td style="padding: 4px; font-weight: bold; color: #1a365d;">{{ doc.item_name or doc.item_code }}</td>
+            <td style="font-weight: bold; padding: 4px; color: #4a5568;">Batch Number:</td>
+            <td style="padding: 4px; font-weight: bold;">{{ doc.batch_no }}</td>
+        </tr>
+        <tr>
+            <td style="font-weight: bold; padding: 4px; color: #4a5568;">Consignee / Customer:</td>
+            <td style="padding: 4px;">{{ doc.customer or 'General Specification' }}</td>
+            <td style="font-weight: bold; padding: 4px; color: #4a5568;">Mfg. Date:</td>
+            <td style="padding: 4px;">{{ frappe.utils.format_date(doc.mfg_date) if doc.mfg_date else 'N/A' }}</td>
+        </tr>
+        <tr>
+            <td style="font-weight: bold; padding: 4px; color: #4a5568;">Target Substrate:</td>
+            <td style="padding: 4px;">{{ doc.target_substrate or 'Flexible Film' }}</td>
+            <td style="font-weight: bold; padding: 4px; color: #4a5568;">Best Before / Retest:</td>
+            <td style="padding: 4px;">{{ frappe.utils.format_date(doc.expiry_date) if doc.expiry_date else '12 Months from Mfg' }}</td>
+        </tr>
+        <tr>
+            <td style="font-weight: bold; padding: 4px; color: #4a5568;">Dispatched Quantity:</td>
+            <td style="padding: 4px;">{{ doc.quantity_dispatched_kg }} Kg ({{ doc.number_of_containers or 0 }} x {{ doc.package_type or 'Containers' }})</td>
+            <td style="font-weight: bold; padding: 4px; color: #4a5568;">Delivery Note Ref:</td>
+            <td style="padding: 4px;">{{ doc.delivery_note or 'Pending Dispatch' }}</td>
+        </tr>
+    </table>
+
+    <!-- REGULATORY COMPLIANCE BANNER -->
+    <div style="background-color: #f7fafc; border: 1px solid #cbd5e0; border-radius: 4px; padding: 10px; margin-bottom: 20px;">
+        <span style="font-weight: bold; font-size: 12px; color: #2d3748; display: block; margin-bottom: 6px;">COMPLIANCE & SAFETY CERTIFICATIONS:</span>
+        <table style="width: 100%; font-size: 11px;">
+            <tr>
+                <td style="width: 33%;">
+                    <span style="color: {{ 'green' if doc.toluene_free else '#a0aec0' }}; font-size: 14px; font-weight: bold;">✔</span>
+                    <strong>100% Toluene Free</strong> (No Toluene used in synthesis or blending)
+                </td>
+                <td style="width: 33%;">
+                    <span style="color: {{ 'green' if doc.ketone_free else '#a0aec0' }}; font-size: 14px; font-weight: bold;">✔</span>
+                    <strong>Ketone Free</strong> (MEK / Acetone Free)
+                </td>
+                <td style="width: 34%;">
+                    <span style="color: {{ 'green' if doc.food_grade_compliance else '#a0aec0' }}; font-size: 14px; font-weight: bold;">✔</span>
+                    <strong>IS 15495 Compliant</strong> (Bureau of Indian Standards for Food Packaging)
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <!-- CERTIFIED TEST READINGS -->
+    <h4 style="margin: 15px 0 8px 0; color: #2b6cb0; font-size: 13px; text-transform: uppercase;">Laboratory Quality Control Test Results</h4>
+    <table style="width: 100%; border-collapse: collapse; font-size: 11px; margin-bottom: 25px;">
+        <thead>
+            <tr style="background-color: #2b6cb0; color: white;">
+                <th style="border: 1px solid #2b6cb0; padding: 8px 6px; text-align: left; width: 30%;">Test Parameter</th>
+                <th style="border: 1px solid #2b6cb0; padding: 8px 6px; text-align: left; width: 22%;">Standard / Test Method</th>
+                <th style="border: 1px solid #2b6cb0; padding: 8px 6px; text-align: left; width: 25%;">Specified Tolerance</th>
+                <th style="border: 1px solid #2b6cb0; padding: 8px 6px; text-align: left; width: 13%;">Batch Result</th>
+                <th style="border: 1px solid #2b6cb0; padding: 8px 6px; text-align: center; width: 10%;">Evaluation</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for row in doc.readings %}
+            <tr style="background-color: {{ '#ffffff' if loop.index % 2 == 1 else '#f8fafc' }};">
+                <td style="border: 1px solid #e2e8f0; padding: 6px; font-weight: 500;">{{ row.parameter_name }}</td>
+                <td style="border: 1px solid #e2e8f0; padding: 6px; color: #4a5568;">{{ row.test_method or '-' }}</td>
+                <td style="border: 1px solid #e2e8f0; padding: 6px; color: #4a5568;">{{ row.specification_range or '-' }}</td>
+                <td style="border: 1px solid #e2e8f0; padding: 6px; font-weight: bold; color: #1a202c;">{{ row.actual_reading }}</td>
+                <td style="border: 1px solid #e2e8f0; padding: 6px; text-align: center; font-weight: bold; color: {{ 'green' if row.result == 'Conforms' else 'red' }};">
+                    {{ row.result }}
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <!-- REMARKS & SIGN OFF -->
+    <div style="border-top: 1px solid #e2e8f0; padding-top: 12px; margin-top: 15px;">
+        <p style="font-size: 11px; color: #4a5568; margin: 0 0 15px 0;">
+            <strong>Storage & Handling:</strong> {{ doc.remarks or 'Store in original tightly closed containers between 15 C and 30 C. Keep away from heat and direct sunlight.' }}
+        </p>
+        <p style="font-size: 10px; color: #718096; margin-bottom: 30px;">
+            <strong>Declaration:</strong> We hereby certify that the above mentioned material has been tested according to our standard quality control procedures and complies with the technical specifications agreed upon.
+        </p>
+
+        <table style="width: 100%; font-size: 12px; margin-top: 20px;">
+            <tr>
+                <td style="width: 50%; vertical-align: bottom;">
+                    <p style="margin: 0; font-weight: bold; color: #2d3748;">Tested By: {{ doc.qc_chemist or 'Quality Control Chemist' }}</p>
+                    <p style="margin: 2px 0 0 0; font-size: 11px; color: #718096;">QC Analytical Laboratory</p>
+                </td>
+                <td style="width: 50%; text-align: right; vertical-align: bottom;">
+                    <p style="margin: 0; font-weight: bold; color: #1a365d;">For TECHNO PRINT CHEMICALS PVT. LTD.</p>
+                    <div style="height: 40px;"></div>
+                    <p style="margin: 0; font-weight: bold; color: #2d3748;">{{ doc.authorized_signatory or 'Authorized Signatory - QA' }}</p>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
