@@ -139,3 +139,4 @@ def setup_custom_fields():
 		],
 	}
 	create_custom_fields(custom_fields, update=True)
+
