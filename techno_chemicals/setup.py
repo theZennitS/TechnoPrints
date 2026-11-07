@@ -9,6 +9,17 @@ def after_migrate():
 	setup_techno_item_groups()
 	setup_default_warehouses()
 	setup_custom_fields()
+	setup_default_workspace()
+
+
+def setup_default_workspace():
+	"""Ensures Administrator default workspace lands on Techno Chemicals and Sidebar has correct app association."""
+	if frappe.db.exists("Sidebar", "Techno Chemicals"):
+		frappe.db.set_value("Sidebar", "Techno Chemicals", "app", "techno_chemicals")
+	if frappe.db.exists("User", "Administrator"):
+		if not frappe.db.get_value("User", "Administrator", "default_workspace"):
+			frappe.db.set_value("User", "Administrator", "default_workspace", "Techno Chemicals")
+
 
 
 def setup_techno_item_groups():
