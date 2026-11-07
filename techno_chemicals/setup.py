@@ -10,6 +10,82 @@ def after_migrate():
 	setup_default_warehouses()
 	setup_custom_fields()
 	setup_default_workspace()
+	setup_ink_operations()
+	setup_ink_workstations()
+	setup_ink_qc_standards()
+
+
+def setup_ink_operations():
+	"""Seeds standard ink manufacturing process operations."""
+	operations = [
+		"Premixing & Dissolution",
+		"Bead Milling (Dispersion)",
+		"Let-down & Blending",
+		"Viscosity & Shade Fine-Tuning",
+		"Filtration & Drumming",
+	]
+	for op in operations:
+		if not frappe.db.exists("Operation", op):
+			frappe.get_doc({
+				"doctype": "Operation",
+				"name": op,
+				"description": f"Standard {op} stage for liquid printing ink manufacture",
+			}).insert(ignore_permissions=True)
+
+
+def setup_ink_workstations():
+	"""Seeds standard shop floor equipment and mills for ink production."""
+	workstations = [
+		{"name": "High Speed Disperser (HSD-01)", "rate": 350.0, "capacity": 1},
+		{"name": "Horizontal Bead Mill (HBM-01)", "rate": 500.0, "capacity": 1},
+		{"name": "Let-Down Blending Tank (LDT-01)", "rate": 250.0, "capacity": 1},
+		{"name": "Filtration & Filling Station (FS-01)", "rate": 150.0, "capacity": 1},
+	]
+	for ws in workstations:
+		if not frappe.db.exists("Workstation", ws["name"]):
+			frappe.get_doc({
+				"doctype": "Workstation",
+				"workstation_name": ws["name"],
+				"hour_rate": ws["rate"],
+				"production_capacity": ws["capacity"],
+			}).insert(ignore_permissions=True)
+
+
+def setup_ink_qc_standards():
+	"""Seeds standard Quality Inspection Parameters and liquid ink QC Template."""
+	parameters = [
+		{"name": "Viscosity (Ford Cup #4)", "description": "Efflux time at 25°C in seconds"},
+		{"name": "Fineness of Grind (Hegman)", "description": "Dispersion fineness via Hegman gauge in microns"},
+		{"name": "Shade Match (Delta E)", "description": "Total color difference under D65 spectrophotometer"},
+		{"name": "Tape Adhesion Test", "description": "Cross-hatch cellophane tape pull test on substrate"},
+		{"name": "Rub Resistance (Sutherland)", "description": "Sutherland rub cycles until ink film breakage"},
+		{"name": "Gloss Level (60°)", "description": "Specular gloss at 60 degree geometry in Gloss Units"},
+		{"name": "Drying Time (Sec)", "description": "Tack-free surface drying time under ambient draft in seconds"},
+	]
+	for p in parameters:
+		if not frappe.db.exists("Quality Inspection Parameter", p["name"]):
+			frappe.get_doc({
+				"doctype": "Quality Inspection Parameter",
+				"parameter": p["name"],
+				"description": p["description"],
+			}).insert(ignore_permissions=True)
+
+	template_name = "Liquid Printing Ink QC Template"
+	if not frappe.db.exists("Quality Inspection Template", template_name):
+		frappe.get_doc({
+			"doctype": "Quality Inspection Template",
+			"quality_inspection_template_name": template_name,
+			"item_quality_inspection_parameter": [
+				{"specification": "Viscosity (Ford Cup #4)", "numeric": 1, "min_value": 18.0, "max_value": 26.0},
+				{"specification": "Fineness of Grind (Hegman)", "numeric": 1, "min_value": 0.0, "max_value": 5.0},
+				{"specification": "Shade Match (Delta E)", "numeric": 1, "min_value": 0.0, "max_value": 1.0},
+				{"specification": "Tape Adhesion Test", "numeric": 0, "value": "Pass (100% Adhesion)"},
+				{"specification": "Rub Resistance (Sutherland)", "numeric": 1, "min_value": 500.0, "max_value": 5000.0},
+				{"specification": "Gloss Level (60°)", "numeric": 1, "min_value": 65.0, "max_value": 95.0},
+				{"specification": "Drying Time (Sec)", "numeric": 1, "min_value": 6.0, "max_value": 14.0},
+			],
+		}).insert(ignore_permissions=True)
+
 
 
 def setup_default_workspace():

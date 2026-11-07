@@ -346,7 +346,7 @@
    "no_copy": 0,
    "non_negative": 0,
    "not_nullable": 0,
-   "options": "GR Poly (Surface)\nGR Poly Met PET\nGR Poly Two Pack\nHR Traction (Toluene Free)\nBHR Foil (Pharma Blister)\nHR Paper\nPET Lam (Lamination)\nExtrusion Lam (PP Woven)\nNT Lam (Non-Toluene)\nDuralam (Non-Ketone Non-Toluene)\nShrink Fit (PVC/PET)\nSpecialty / OPV",
+   "options": "GR Poly (Surface)\nGR Poly Met PET\nGR Poly Two Pack\nHR Traction (Toluene Free)\nBHR Foil (Pharma Blister)\nHR Paper\nGR Traction\nPET Lam (Lamination)\nExtrusion Lam (PP Woven)\nNT Lam (Non-Toluene)\nDuralam (Non-Ketone Non-Toluene)\nBOPP Tape\nShrink Fit (PVC/PET)\nFlexo Traction (Surface)\nFlexo Poly (Polyethylene)\nAqueous Kraft (Paper & Corrugated)\nSpecialty / OPV\nMatt OPV\nBase Coat\nHeat Seal Lacquer",
    "parent": "Ink Formulation",
    "parentfield": "fields",
    "parenttype": "DocType",
