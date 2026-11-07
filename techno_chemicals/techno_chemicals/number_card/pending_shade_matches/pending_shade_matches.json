@@ -1,0 +1,21 @@
+{
+ "aggregate_function_based_on": "",
+ "color": null,
+ "docstatus": 0,
+ "doctype": "Number Card",
+ "document_type": "Shade Match Request",
+ "dynamic_filters_json": "[]",
+ "filters_json": "[[\"Shade Match Request\",\"status\",\"!=\",\"Approved by Converter\"]]",
+ "function": "Count",
+ "idx": 3,
+ "is_public": 1,
+ "is_standard": 1,
+ "label": "Pending Shade Matches",
+ "module": "Techno Chemicals",
+ "name": "Pending Shade Matches",
+ "owner": "Administrator",
+ "show_percentage_stats": 1,
+ "standard": 1,
+ "stats_time_interval": "Monthly",
+ "type": "Document Type"
+}

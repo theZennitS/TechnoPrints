@@ -109,6 +109,7 @@ use_json_request_body = True
 
 # before_install = "techno_chemicals.install.before_install"
 # after_install = "techno_chemicals.install.after_install"
+after_migrate = "techno_chemicals.setup.after_migrate"
 
 # Uninstallation
 # ------------
@@ -307,12 +308,33 @@ require_type_annotated_api_methods = True
 
 fixtures = [
 	{
+		"dt": "Desktop Icon",
+		"filters": [["name", "in", ["Techno Chemicals"]]],
+	},
+	{
 		"dt": "Workspace",
 		"filters": [["name", "in", ["Techno Chemicals"]]],
 	},
 	{
 		"dt": "Sidebar",
 		"filters": [["name", "in", ["Techno Chemicals"]]],
+	},
+	{
+		"dt": "Number Card",
+		"filters": [
+			[
+				"name",
+				"in",
+				[
+					"Approved Ink Formulations",
+					"Active Ink Benchmarks",
+					"Pending Shade Matches",
+					"CoAs Released",
+					"Active Work Orders",
+					"Active Chemical Batches",
+				],
+			]
+		],
 	},
 ]
 

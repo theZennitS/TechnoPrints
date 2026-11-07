@@ -1,0 +1,391 @@
+{
+ "app": "techno_chemicals",
+ "charts": [],
+ "content": "[{\"id\":\"tcHeader\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Techno Print Chemicals</b></span>\",\"col\":12}},{\"id\":\"tcSC1\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Ink Formulation\",\"col\":3}},{\"id\":\"tcSC2\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Shade Match Request\",\"col\":3}},{\"id\":\"tcSC3\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Ink Benchmark\",\"col\":3}},{\"id\":\"tcSC4\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Certificate of Analysis\",\"col\":3}},{\"id\":\"tcSC5\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Work Order\",\"col\":3}},{\"id\":\"tcSC6\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Bill of Materials\",\"col\":3}},{\"id\":\"tcSC7\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Stock Entry\",\"col\":3}},{\"id\":\"tcSC8\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Delivery Note\",\"col\":3}},{\"id\":\"tcOverviewHeader\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Overview &amp; Metrics</b></span>\",\"col\":12}},{\"id\":\"tcNC1\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Approved Ink Formulations\",\"col\":4}},{\"id\":\"tcNC2\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Active Ink Benchmarks\",\"col\":4}},{\"id\":\"tcNC3\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Pending Shade Matches\",\"col\":4}},{\"id\":\"tcNC4\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"CoAs Released\",\"col\":4}},{\"id\":\"tcNC5\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Active Work Orders\",\"col\":4}},{\"id\":\"tcNC6\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Active Chemical Batches\",\"col\":4}},{\"id\":\"tcSpacer1\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"tcCardsHeader\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Masters &amp; Reports</b></span>\",\"col\":12}},{\"id\":\"tcCardRD\",\"type\":\"card\",\"data\":{\"card_name\":\"Ink Formulation & R&D\",\"col\":4}},{\"id\":\"tcCardQC\",\"type\":\"card\",\"data\":{\"card_name\":\"Quality Control & CoA\",\"col\":4}},{\"id\":\"tcCardProd\",\"type\":\"card\",\"data\":{\"card_name\":\"Plant Shop Floor\",\"col\":4}},{\"id\":\"tcCardInv\",\"type\":\"card\",\"data\":{\"card_name\":\"Inventory & Tank Farm\",\"col\":4}},{\"id\":\"tcCardSales\",\"type\":\"card\",\"data\":{\"card_name\":\"Sales & Dispatch\",\"col\":4}},{\"id\":\"tcCardReports\",\"type\":\"card\",\"data\":{\"card_name\":\"Production & Planning Reports\",\"col\":4}},{\"id\":\"tcCardTally\",\"type\":\"card\",\"data\":{\"card_name\":\"Tally Export Registers\",\"col\":4}}]",
+ "custom_blocks": [],
+ "docstatus": 0,
+ "doctype": "Workspace",
+ "for_user": "",
+ "hide_custom": 0,
+ "icon": "flask-conical",
+ "idx": 0,
+ "is_hidden": 0,
+ "label": "Techno Chemicals",
+ "links": [
+  {
+   "type": "Card Break",
+   "label": "Ink Formulation & R&D",
+   "hidden": 0,
+   "is_query_report": 0,
+   "link_count": 0,
+   "onboard": 0
+  },
+  {
+   "type": "Link",
+   "label": "Ink Formulation",
+   "link_to": "Ink Formulation",
+   "link_type": "DocType",
+   "hidden": 0,
+   "is_query_report": 0,
+   "link_count": 0,
+   "onboard": 0,
+   "dependencies": ""
+  },
+  {
+   "type": "Link",
+   "label": "Shade Match Request",
+   "link_to": "Shade Match Request",
+   "link_type": "DocType",
+   "hidden": 0,
+   "is_query_report": 0,
+   "link_count": 0,
+   "onboard": 0,
+   "dependencies": ""
+  },
+  {
+   "type": "Link",
+   "label": "Bill of Materials (BOM)",
+   "link_to": "BOM",
+   "link_type": "DocType",
+   "hidden": 0,
+   "is_query_report": 0,
+   "link_count": 0,
+   "onboard": 0,
+   "dependencies": ""
+  },
+  {
+   "type": "Card Break",
+   "label": "Quality Control & CoA",
+   "hidden": 0,
+   "is_query_report": 0,
+   "link_count": 0,
+   "onboard": 0
+  },
+  {
+   "type": "Link",
+   "label": "Certificate of Analysis (CoA)",
+   "link_to": "Certificate of Analysis",
+   "link_type": "DocType",
+   "hidden": 0,
+   "is_query_report": 0,
+   "link_count": 0,
+   "onboard": 0,
+   "dependencies": ""
+  },
+  {
+   "type": "Link",
+   "label": "Ink Benchmark Specs",
+   "link_to": "Ink Benchmark",
+   "link_type": "DocType",
+   "hidden": 0,
+   "is_query_report": 0,
+   "link_count": 0,
+   "onboard": 0,
+   "dependencies": ""
+  },
+  {
+   "type": "Link",
+   "label": "Quality Inspection",
+   "link_to": "Quality Inspection",
+   "link_type": "DocType",
+   "hidden": 0,
+   "is_query_report": 0,
+   "link_count": 0,
+   "onboard": 0,
+   "dependencies": ""
+  },
+  {
+   "type": "Link",
+   "label": "Quality Templates",
+   "link_to": "Quality Inspection Template",
+   "link_type": "DocType",
+   "hidden": 0,
+   "is_query_report": 0,
+   "link_count": 0,
+   "onboard": 0,
+   "dependencies": ""
+  },
+  {
+   "type": "Card Break",
+   "label": "Plant Shop Floor",
+   "hidden": 0,
+   "is_query_report": 0,
+   "link_count": 0,
+   "onboard": 0
+  },
+  {
+   "type": "Link",
+   "label": "Work Order (Batches)",
+   "link_to": "Work Order",
+   "link_type": "DocType",
+   "hidden": 0,
+   "is_query_report": 0,
+   "link_count": 0,
+   "onboard": 0,
+   "dependencies": ""
+  },
+  {
+   "type": "Link",
+   "label": "Stock Entry (Production)",
+   "link_to": "Stock Entry",
+   "link_type": "DocType",
+   "hidden": 0,
+   "is_query_report": 0,
+   "link_count": 0,
+   "onboard": 0,
+   "dependencies": ""
+  },
+  {
+   "type": "Link",
+   "label": "Workstations (Mills & Mixers)",
+   "link_to": "Workstation",
+   "link_type": "DocType",
+   "hidden": 0,
+   "is_query_report": 0,
+   "link_count": 0,
+   "onboard": 0,
+   "dependencies": ""
+  },
+  {
+   "type": "Card Break",
+   "label": "Inventory & Tank Farm",
+   "hidden": 0,
+   "is_query_report": 0,
+   "link_count": 0,
+   "onboard": 0
+  },
+  {
+   "type": "Link",
+   "label": "Item Masters",
+   "link_to": "Item",
+   "link_type": "DocType",
+   "hidden": 0,
+   "is_query_report": 0,
+   "link_count": 0,
+   "onboard": 0,
+   "dependencies": ""
+  },
+  {
+   "type": "Link",
+   "label": "Warehouses & Tanks",
+   "link_to": "Warehouse",
+   "link_type": "DocType",
+   "hidden": 0,
+   "is_query_report": 0,
+   "link_count": 0,
+   "onboard": 0,
+   "dependencies": ""
+  },
+  {
+   "type": "Link",
+   "label": "Chemical Batches",
+   "link_to": "Batch",
+   "link_type": "DocType",
+   "hidden": 0,
+   "is_query_report": 0,
+   "link_count": 0,
+   "onboard": 0,
+   "dependencies": ""
+  },
+  {
+   "type": "Link",
+   "label": "Stock Balance",
+   "link_to": "Stock Balance",
+   "link_type": "Report",
+   "hidden": 0,
+   "is_query_report": 1,
+   "link_count": 0,
+   "onboard": 0,
+   "dependencies": ""
+  },
+  {
+   "type": "Card Break",
+   "label": "Sales & Dispatch",
+   "hidden": 0,
+   "is_query_report": 0,
+   "link_count": 0,
+   "onboard": 0
+  },
+  {
+   "type": "Link",
+   "label": "Sales Order",
+   "link_to": "Sales Order",
+   "link_type": "DocType",
+   "hidden": 0,
+   "is_query_report": 0,
+   "link_count": 0,
+   "onboard": 0,
+   "dependencies": ""
+  },
+  {
+   "type": "Link",
+   "label": "Delivery Note",
+   "link_to": "Delivery Note",
+   "link_type": "DocType",
+   "hidden": 0,
+   "is_query_report": 0,
+   "link_count": 0,
+   "onboard": 0,
+   "dependencies": ""
+  },
+  {
+   "type": "Link",
+   "label": "Customers (Converters)",
+   "link_to": "Customer",
+   "link_type": "DocType",
+   "hidden": 0,
+   "is_query_report": 0,
+   "link_count": 0,
+   "onboard": 0,
+   "dependencies": ""
+  },
+  {
+   "type": "Card Break",
+   "label": "Production & Planning Reports",
+   "hidden": 0,
+   "is_query_report": 0,
+   "link_count": 0,
+   "onboard": 0
+  },
+  {
+   "type": "Link",
+   "label": "Production Analytics",
+   "link_to": "Production Analytics",
+   "link_type": "Report",
+   "hidden": 0,
+   "is_query_report": 1,
+   "link_count": 0,
+   "onboard": 0,
+   "dependencies": ""
+  },
+  {
+   "type": "Link",
+   "label": "Work Order Summary",
+   "link_to": "Work Order Summary",
+   "link_type": "Report",
+   "hidden": 0,
+   "is_query_report": 1,
+   "link_count": 0,
+   "onboard": 0,
+   "dependencies": ""
+  },
+  {
+   "type": "Link",
+   "label": "Process Loss Report",
+   "link_to": "Process Loss Report",
+   "link_type": "Report",
+   "hidden": 0,
+   "is_query_report": 1,
+   "link_count": 0,
+   "onboard": 0,
+   "dependencies": ""
+  },
+  {
+   "type": "Link",
+   "label": "Production Planning Report",
+   "link_to": "Production Planning Report",
+   "link_type": "Report",
+   "hidden": 0,
+   "is_query_report": 1,
+   "link_count": 0,
+   "onboard": 0,
+   "dependencies": ""
+  },
+  {
+   "type": "Card Break",
+   "label": "Tally Export Registers",
+   "hidden": 0,
+   "is_query_report": 0,
+   "link_count": 0,
+   "onboard": 0
+  },
+  {
+   "type": "Link",
+   "label": "Sales Register (Tally Export)",
+   "link_to": "Sales Register",
+   "link_type": "Report",
+   "hidden": 0,
+   "is_query_report": 1,
+   "link_count": 0,
+   "onboard": 0,
+   "dependencies": ""
+  },
+  {
+   "type": "Link",
+   "label": "Purchase Register (Tally Export)",
+   "link_to": "Purchase Register",
+   "link_type": "Report",
+   "hidden": 0,
+   "is_query_report": 1,
+   "link_count": 0,
+   "onboard": 0,
+   "dependencies": ""
+  }
+ ],
+ "module": "Techno Chemicals",
+ "name": "Techno Chemicals",
+ "owner": "Administrator",
+ "parent_page": "",
+ "public": 1,
+ "roles": [],
+ "sequence_id": 1.0,
+ "shortcuts": [
+  {
+   "color": "Blue",
+   "doc_view": "List",
+   "label": "Ink Formulation",
+   "link_to": "Ink Formulation",
+   "type": "DocType"
+  },
+  {
+   "color": "Blue",
+   "doc_view": "List",
+   "label": "Shade Match Request",
+   "link_to": "Shade Match Request",
+   "type": "DocType"
+  },
+  {
+   "color": "Blue",
+   "doc_view": "List",
+   "label": "Ink Benchmark",
+   "link_to": "Ink Benchmark",
+   "type": "DocType"
+  },
+  {
+   "color": "Blue",
+   "doc_view": "List",
+   "label": "Certificate of Analysis",
+   "link_to": "Certificate of Analysis",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Work Order",
+   "link_to": "Work Order",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Bill of Materials",
+   "link_to": "BOM",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Stock Entry",
+   "link_to": "Stock Entry",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Delivery Note",
+   "link_to": "Delivery Note",
+   "type": "DocType"
+  }
+ ],
+ "title": "Techno Chemicals"
+}

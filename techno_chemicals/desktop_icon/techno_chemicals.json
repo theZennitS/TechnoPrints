@@ -1,0 +1,18 @@
+{
+ "app": "techno_chemicals",
+ "docstatus": 0,
+ "doctype": "Desktop Icon",
+ "hidden": 0,
+ "icon": "flask-conical",
+ "icon_type": "Link",
+ "idx": 1,
+ "label": "Techno Chemicals",
+ "link_to": "Techno Chemicals",
+ "link_type": "Workspace Sidebar",
+ "name": "Techno Chemicals",
+ "owner": "Administrator",
+ "parent_icon": "",
+ "restrict_removal": 0,
+ "roles": [],
+ "standard": 1
+}

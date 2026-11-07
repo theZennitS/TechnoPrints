@@ -1,0 +1,21 @@
+{
+ "aggregate_function_based_on": "",
+ "color": null,
+ "docstatus": 0,
+ "doctype": "Number Card",
+ "document_type": "Work Order",
+ "dynamic_filters_json": "[]",
+ "filters_json": "[[\"Work Order\",\"status\",\"in\",[\"Not Started\",\"In Process\"]]]",
+ "function": "Count",
+ "idx": 5,
+ "is_public": 1,
+ "is_standard": 1,
+ "label": "Active Work Orders",
+ "module": "Techno Chemicals",
+ "name": "Active Work Orders",
+ "owner": "Administrator",
+ "show_percentage_stats": 1,
+ "standard": 1,
+ "stats_time_interval": "Monthly",
+ "type": "Document Type"
+}

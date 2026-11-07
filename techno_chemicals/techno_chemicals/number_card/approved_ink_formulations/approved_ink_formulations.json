@@ -1,0 +1,21 @@
+{
+ "aggregate_function_based_on": "",
+ "color": null,
+ "docstatus": 0,
+ "doctype": "Number Card",
+ "document_type": "Ink Formulation",
+ "dynamic_filters_json": "[]",
+ "filters_json": "[[\"Ink Formulation\",\"status\",\"=\",\"Approved\"]]",
+ "function": "Count",
+ "idx": 1,
+ "is_public": 1,
+ "is_standard": 1,
+ "label": "Approved Ink Formulations",
+ "module": "Techno Chemicals",
+ "name": "Approved Ink Formulations",
+ "owner": "Administrator",
+ "show_percentage_stats": 1,
+ "standard": 1,
+ "stats_time_interval": "Monthly",
+ "type": "Document Type"
+}
