@@ -1373,6 +1373,9 @@
   "modified": "2026-11-08 16:30:00.000000",
   "name": "Techno Chemicals",
   "standard": 1,
-  "title": "Techno Chemicals"
+  "title": "Techno Chemicals",
+  "module": "Techno Chemicals",
+  "owner": "Administrator",
+  "modified_by": "Administrator"
  }
 ]
