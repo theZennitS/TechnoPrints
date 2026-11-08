@@ -310,6 +310,20 @@
    "unique": 0
   },
   {
+   "fieldname": "available_stock_kg",
+   "fieldtype": "Float",
+   "label": "Stock Left (Kg)",
+   "read_only": 1,
+   "in_list_view": 1,
+   "columns": 2,
+   "precision": "2",
+   "doctype": "DocField",
+   "name": "is7availstk",
+   "parent": "Ink Formulation Item",
+   "parentfield": "fields",
+   "parenttype": "DocType"
+  },
+  {
    "alignment": "",
    "allow_bulk_edit": 0,
    "allow_in_quick_entry": 0,

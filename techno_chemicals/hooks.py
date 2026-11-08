@@ -326,12 +326,33 @@ fixtures = [
 				"name",
 				"in",
 				[
+					"Net Sales",
+					"Net Purchases",
+					"Receivables",
+					"Payables",
+					"Active Work Orders",
+					"Pending Shade Matches",
+					"Low Stock Pigments",
+					"Orders to Dispatch",
+					"CoAs Released",
 					"Approved Ink Formulations",
 					"Active Ink Benchmarks",
-					"Pending Shade Matches",
-					"CoAs Released",
-					"Active Work Orders",
 					"Active Chemical Batches",
+				],
+			]
+		],
+	},
+	{
+		"dt": "Dashboard Chart",
+		"filters": [
+			[
+				"name",
+				"in",
+				[
+					"Sales Trend",
+					"Purchase Trend",
+					"Ink Production Volume Trend",
+					"CoAs Released Trend",
 				],
 			]
 		],

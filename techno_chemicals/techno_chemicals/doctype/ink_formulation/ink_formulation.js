@@ -19,6 +19,13 @@ frappe.ui.form.on("Ink Formulation", {
 				});
 			}, __("Actions"));
 		}
+
+		// Update stock for all rows on refresh
+		(frm.doc.items || []).forEach(row => {
+			if (row.item_code && !row.available_stock_kg) {
+				fetch_row_stock(frm, row.doctype, row.name, row.item_code);
+			}
+		});
 	},
 	base_batch_size_kg: function(frm) {
 		calculate_formulation_totals(frm);
@@ -26,6 +33,14 @@ frappe.ui.form.on("Ink Formulation", {
 });
 
 frappe.ui.form.on("Ink Formulation Item", {
+	item_code: function(frm, cdt, cdn) {
+		let row = locals[cdt][cdn];
+		if (!row.item_code) {
+			frappe.model.set_value(cdt, cdn, "available_stock_kg", 0);
+			return;
+		}
+		fetch_row_stock(frm, cdt, cdn, row.item_code);
+	},
 	percentage: function(frm, cdt, cdn) {
 		calculate_formulation_totals(frm);
 	},
@@ -33,6 +48,18 @@ frappe.ui.form.on("Ink Formulation Item", {
 		calculate_formulation_totals(frm);
 	}
 });
+
+function fetch_row_stock(frm, cdt, cdn, item_code) {
+	frappe.call({
+		method: "techno_chemicals.api.get_item_stock",
+		args: { item_code: item_code },
+		callback: function(r) {
+			if (r.message !== undefined) {
+				frappe.model.set_value(cdt, cdn, "available_stock_kg", flt(r.message));
+			}
+		}
+	});
+}
 
 function calculate_formulation_totals(frm) {
 	let total_pct = 0.0;
