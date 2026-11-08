@@ -89,9 +89,29 @@ def setup_ink_qc_standards():
 
 
 def setup_default_workspace():
-	"""Ensures Administrator default workspace lands on Techno Chemicals and Sidebar has correct app association."""
-	if frappe.db.exists("Sidebar", "Techno Chemicals"):
-		frappe.db.set_value("Sidebar", "Techno Chemicals", "app", "techno_chemicals")
+	"""Ensures Administrator default workspace lands on Techno Chemicals and Sidebar has correct app association and items order."""
+	import json
+	import os
+
+	sidebar_file = frappe.get_app_path(
+		"techno_chemicals", "techno_chemicals", "sidebar", "techno_chemicals", "techno_chemicals.json"
+	)
+	if os.path.exists(sidebar_file):
+		with open(sidebar_file, "r", encoding="utf-8") as f:
+			sidebar_data = json.load(f)
+		if frappe.db.exists("Sidebar", "Techno Chemicals"):
+			doc = frappe.get_doc("Sidebar", "Techno Chemicals")
+			doc.app = "techno_chemicals"
+			doc.header_icon = sidebar_data.get("header_icon", "flask-conical")
+			doc.set("items", [])
+			for it in sidebar_data.get("items", []):
+				doc.append("items", it)
+			doc.flags.ignore_permissions = True
+			doc.save()
+		else:
+			sidebar_data["doctype"] = "Sidebar"
+			frappe.get_doc(sidebar_data).insert(ignore_permissions=True)
+
 	if frappe.db.exists("User", "Administrator"):
 		if not frappe.db.get_value("User", "Administrator", "default_workspace"):
 			frappe.db.set_value("User", "Administrator", "default_workspace", "Techno Chemicals")
