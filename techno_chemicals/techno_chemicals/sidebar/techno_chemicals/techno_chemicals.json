@@ -1,6 +1,6 @@
 {
  "app": "techno_chemicals",
- "creation": "2026-11-08 18:05:35.424711",
+ "creation": "2026-11-12 01:22:48.636742",
  "docstatus": 0,
  "doctype": "Sidebar",
  "header_icon": "flask-conical",
@@ -365,6 +365,22 @@
    "keep_closed": 0,
    "label": "Certificate of Analysis",
    "link_to": "Certificate of Analysis",
+   "link_type": "DocType",
+   "open_in_new_tab": 1,
+   "show_arrow": 0,
+   "type": "Link"
+  },
+  {
+   "added": 0,
+   "child": 1,
+   "collapsible": 1,
+   "hidden": 0,
+   "icon": "",
+   "indent": 0,
+   "is_default_module": 0,
+   "keep_closed": 0,
+   "label": "Returns",
+   "link_to": "Returns",
    "link_type": "DocType",
    "open_in_new_tab": 1,
    "show_arrow": 0,
@@ -991,7 +1007,7 @@
    "type": "Link"
   }
  ],
- "modified": "2026-11-08 18:05:43.361378",
+ "modified": "2026-11-12 01:23:12.948055",
  "modified_by": "Administrator",
  "module": "Techno Chemicals",
  "name": "Techno Chemicals",

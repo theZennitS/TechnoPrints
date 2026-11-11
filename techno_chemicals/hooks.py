@@ -183,13 +183,14 @@ after_migrate = "techno_chemicals.setup.after_migrate"
 # ---------------
 # Hook on document methods and events
 
-# doc_events = {
-# 	"*": {
-# 		"on_update": "method",
-# 		"on_cancel": "method",
-# 		"on_trash": "method"
-# 	}
-# }
+doc_events = {
+	"Quality Inspection": {
+		"on_submit": "techno_chemicals.techno_chemicals.doctype.returns.returns.on_quality_inspection_submit",
+	},
+	"Delivery Note": {
+		"on_submit": "techno_chemicals.techno_chemicals.doctype.returns.returns.on_delivery_note_submit",
+	},
+}
 
 # Scheduled Tasks
 # ---------------

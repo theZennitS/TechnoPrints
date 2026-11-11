@@ -1,0 +1,335 @@
+{
+ "actions": [],
+ "allow_auto_repeat": 0,
+ "allow_bulk_edit": 1,
+ "allow_copy": 0,
+ "allow_events_in_timeline": 0,
+ "allow_guest_to_view": 0,
+ "allow_import": 1,
+ "allow_rename": 1,
+ "autoname": "naming_series:",
+ "beta": 0,
+ "custom": 0,
+ "deprecated": 0,
+ "doctype": "DocType",
+ "document_type": "",
+ "editable_grid": 1,
+ "email_append_to": 0,
+ "engine": "InnoDB",
+ "fields": [
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Series",
+   "no_copy": 1,
+   "options": "RET-.YYYY.-.#####",
+   "default": "RET-.YYYY.-.#####",
+   "reqd": 1,
+   "set_only_once": 1
+  },
+  {
+   "fieldname": "customer",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Customer",
+   "options": "Customer",
+   "reqd": 1
+  },
+  {
+   "fieldname": "posting_date",
+   "fieldtype": "Date",
+   "default": "Today",
+   "in_list_view": 1,
+   "label": "Return Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "item_code",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Item Code",
+   "options": "Item",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "item_code.item_name",
+   "fieldname": "item_name",
+   "fieldtype": "Data",
+   "label": "Item Name",
+   "read_only": 1
+  },
+  {
+   "fieldname": "batch_no",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Batch Number",
+   "options": "Batch",
+   "reqd": 1
+  },
+  {
+   "fieldname": "returned_qty",
+   "fieldtype": "Float",
+   "default": "1.0",
+   "in_list_view": 1,
+   "label": "Returned Qty",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "item_code.stock_uom",
+   "fieldname": "stock_uom",
+   "fieldtype": "Link",
+   "label": "Stock UOM",
+   "options": "UOM",
+   "read_only": 1
+  },
+  {
+   "fieldname": "col_break_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "default": "Received in Quarantine",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Return Status",
+   "options": "Received in Quarantine\nUnder QC Check\nQC Passed - Ready for Restock\nRestocked to Finished Goods\nCustomer Fault - Fake Return\nRework in Progress\nRework Completed\nScrapped\nClosed",
+   "reqd": 1
+  },
+  {
+   "fieldname": "warehouse",
+   "fieldtype": "Link",
+   "label": "Current Holding Warehouse",
+   "options": "Warehouse"
+  },
+  {
+   "fieldname": "original_delivery_note",
+   "fieldtype": "Link",
+   "label": "Original Delivery Note Ref",
+   "options": "Delivery Note"
+  },
+  {
+   "fieldname": "return_delivery_note",
+   "fieldtype": "Link",
+   "label": "Sales Return Delivery Note",
+   "options": "Delivery Note"
+  },
+  {
+   "fieldname": "sec_break_reason",
+   "fieldtype": "Section Break",
+   "label": "Return Reason & Customer Feedback"
+  },
+  {
+   "fieldname": "return_reason_category",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Return Reason Category",
+   "options": "Wrong Product Ordered by Customer\nWrong Product Dispatched by Plant\nAdhesion Failure / Peeling on Press\nOff Shade / Color Variation\nViscosity / Drying Issue\nGelling / Settling in Container\nRub / Scuff Resistance Failure\nPackaging Damaged / Leaking Drum\nExcess / Unused Stock Return\nOther",
+   "reqd": 1
+  },
+  {
+   "fieldname": "col_break_reason",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "customer_notes",
+   "fieldtype": "Small Text",
+   "label": "Customer Notes / Reason Details"
+  },
+  {
+   "fieldname": "sec_break_qc",
+   "fieldtype": "Section Break",
+   "label": "Quality Inspection & Testing"
+  },
+  {
+   "fieldname": "quality_inspection",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Quality Inspection Ref",
+   "options": "Quality Inspection",
+   "read_only": 1
+  },
+  {
+   "fieldname": "qc_status",
+   "fieldtype": "Select",
+   "default": "Pending QC",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "QC Outcome",
+   "options": "Pending QC\nQC Passed\nQC Failed\nExempted / Visual Inspection Only",
+   "read_only": 1
+  },
+  {
+   "fieldname": "col_break_qc",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "qc_findings",
+   "fieldtype": "Small Text",
+   "label": "QC Observations & Findings",
+   "read_only": 1
+  },
+  {
+   "fieldname": "sec_break_disposition",
+   "fieldtype": "Section Break",
+   "label": "Disposition & Stock Movement"
+  },
+  {
+   "fieldname": "disposition",
+   "fieldtype": "Select",
+   "default": "Pending Inspection",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Final Disposition",
+   "options": "Pending Inspection\nRestock to Finished Goods\nCustomer Fault (Fake Return)\nRework in Plant\nScrap / Write-off"
+  },
+  {
+   "fieldname": "stock_entry",
+   "fieldtype": "Link",
+   "label": "Stock Movement Entry",
+   "options": "Stock Entry",
+   "read_only": 1
+  },
+  {
+   "fieldname": "col_break_disp",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "resolution_notes",
+   "fieldtype": "Small Text",
+   "label": "Resolution & Corrective Action Notes"
+  }
+ ],
+ "force_re_route_to_default_view": 0,
+ "grid_page_length": 50,
+ "has_web_view": 0,
+ "hide_toolbar": 0,
+ "in_create": 0,
+ "is_calendar_and_gantt": 0,
+ "is_submittable": 0,
+ "is_tree": 0,
+ "is_virtual": 0,
+ "issingle": 0,
+ "istable": 0,
+ "link_display_mode": "Search",
+ "links": [],
+ "make_attachments_public": 0,
+ "max_attachments": 5,
+ "module": "Techno Chemicals",
+ "name": "Returns",
+ "naming_rule": "By \"Naming Series\" field",
+ "permissions": [
+  {
+   "amend": 0,
+   "cancel": 0,
+   "create": 1,
+   "delete": 1,
+   "doctype": "DocPerm",
+   "email": 1,
+   "export": 1,
+   "if_owner": 0,
+   "import": 1,
+   "permlevel": 0,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "submit": 0,
+   "write": 1
+  },
+  {
+   "amend": 0,
+   "cancel": 0,
+   "create": 1,
+   "delete": 0,
+   "doctype": "DocPerm",
+   "email": 1,
+   "export": 1,
+   "if_owner": 0,
+   "import": 0,
+   "permlevel": 0,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Stock User",
+   "share": 1,
+   "submit": 0,
+   "write": 1
+  },
+  {
+   "amend": 0,
+   "cancel": 0,
+   "create": 1,
+   "delete": 0,
+   "doctype": "DocPerm",
+   "email": 1,
+   "export": 1,
+   "if_owner": 0,
+   "import": 0,
+   "permlevel": 0,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Quality Manager",
+   "share": 1,
+   "submit": 0,
+   "write": 1
+  }
+ ],
+ "protect_attached_files": 0,
+ "queue_in_background": 0,
+ "quick_entry": 0,
+ "read_only": 0,
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "show_image_in_link": 0,
+ "show_name_in_global_search": 1,
+ "show_preview_popup": 0,
+ "show_title_field_in_link": 0,
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": [
+  {
+   "color": "Red",
+   "title": "Received in Quarantine"
+  },
+  {
+   "color": "Orange",
+   "title": "Under QC Check"
+  },
+  {
+   "color": "Yellow",
+   "title": "QC Passed - Ready for Restock"
+  },
+  {
+   "color": "Green",
+   "title": "Restocked to Finished Goods"
+  },
+  {
+   "color": "Blue",
+   "title": "Customer Fault - Fake Return"
+  },
+  {
+   "color": "Purple",
+   "title": "Rework in Progress"
+  },
+  {
+   "color": "Dark Gray",
+   "title": "Scrapped"
+  },
+  {
+   "color": "Green",
+   "title": "Closed"
+  }
+ ],
+ "track_changes": 1,
+ "track_seen": 0,
+ "track_views": 0,
+ "translated_doctype": 0
+}
+

@@ -13,6 +13,16 @@ def after_migrate():
 	setup_ink_operations()
 	setup_ink_workstations()
 	setup_ink_qc_standards()
+	setup_qc_reference_type()
+
+
+def setup_qc_reference_type():
+	"""Ensures 'Returns' is available in Quality Inspection reference_type options."""
+	df = frappe.db.get_value("DocField", {"parent": "Quality Inspection", "fieldname": "reference_type"}, ["name", "options"], as_dict=True)
+	if df and df.options and "Returns" not in df.options:
+		new_options = df.options.strip() + "\nReturns"
+		frappe.db.set_value("DocField", df.name, "options", new_options)
+		frappe.clear_cache(doctype="Quality Inspection")
 
 
 def setup_ink_operations():
@@ -220,6 +230,31 @@ def setup_custom_fields():
 				"fieldtype": "Percent",
 				"default": "3.5",
 				"insert_after": "col_break_ink",
+			},
+		],
+		"Delivery Note": [
+			{
+				"fieldname": "returns_sec_break",
+				"label": "Customer Return Details",
+				"fieldtype": "Section Break",
+				"insert_after": "is_return",
+				"depends_on": "eval:doc.is_return == 1",
+				"collapsible": 1,
+			},
+			{
+				"fieldname": "return_reason_category",
+				"label": "Return Reason Category",
+				"fieldtype": "Select",
+				"options": "\nWrong Product Ordered by Customer\nWrong Product Dispatched by Plant\nAdhesion Failure / Peeling on Press\nOff Shade / Color Variation\nViscosity / Drying Issue\nGelling / Settling in Container\nRub / Scuff Resistance Failure\nPackaging Damaged / Leaking Drum\nExcess / Unused Stock Return\nOther",
+				"insert_after": "returns_sec_break",
+				"depends_on": "eval:doc.is_return == 1",
+			},
+			{
+				"fieldname": "customer_notes",
+				"label": "Return Reason / Customer Feedback Notes",
+				"fieldtype": "Small Text",
+				"insert_after": "return_reason_category",
+				"depends_on": "eval:doc.is_return == 1",
 			},
 		],
 		"Delivery Note Item": [
