@@ -631,7 +631,7 @@
    "in_preview": 0,
    "in_standard_filter": 0,
    "is_virtual": 0,
-   "label": "Color Strength (Delta E vs Swatch)",
+   "label": "Delta E",
    "length": 0,
    "make_attachment_public": 0,
    "mask": 0,
@@ -660,7 +660,8 @@
    "sort_options": 0,
    "sticky": 0,
    "translatable": 0,
-   "unique": 0
+   "unique": 0,
+   "description": "Color difference vs standard swatch under D65"
   },
   {
    "alignment": "",
@@ -689,7 +690,7 @@
    "in_preview": 0,
    "in_standard_filter": 0,
    "is_virtual": 0,
-   "label": "Press Viscosity (Ford Cup 4 sec)",
+   "label": "Press Viscosity (Sec)",
    "length": 0,
    "make_attachment_public": 0,
    "mask": 0,
@@ -718,7 +719,8 @@
    "sort_options": 0,
    "sticky": 0,
    "translatable": 0,
-   "unique": 0
+   "unique": 0,
+   "description": "Efflux time in seconds using Ford Cup #4 at 25\u00b0C"
   },
   {
    "alignment": "",

@@ -14,6 +14,21 @@ def after_migrate():
 	setup_ink_workstations()
 	setup_ink_qc_standards()
 	setup_qc_reference_type()
+	setup_parameter_full_form()
+
+
+def setup_parameter_full_form():
+	"""Sets quick_entry = 0 on Quality Inspection Parameter so adding new parameter always opens full form."""
+	if not frappe.db.exists("Property Setter", "Quality Inspection Parameter-main-quick_entry"):
+		frappe.make_property_setter({
+			"doctype": "Quality Inspection Parameter",
+			"doctype_or_field": "DocType",
+			"property": "quick_entry",
+			"value": "0",
+			"property_type": "Check",
+		})
+	else:
+		frappe.db.set_value("Property Setter", "Quality Inspection Parameter-main-quick_entry", "value", "0")
 
 
 def setup_qc_reference_type():
