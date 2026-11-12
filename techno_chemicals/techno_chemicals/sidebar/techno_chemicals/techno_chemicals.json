@@ -1,6 +1,6 @@
 {
  "app": "techno_chemicals",
- "creation": "2026-11-12 14:38:23.695844",
+ "creation": "2026-11-12 15:59:39.912852",
  "docstatus": 0,
  "doctype": "Sidebar",
  "header_icon": "flask-conical",
@@ -1023,7 +1023,7 @@
    "type": "Link"
   }
  ],
- "modified": "2026-11-12 14:38:28.300372",
+ "modified": "2026-11-12 15:59:43.287103",
  "modified_by": "Administrator",
  "module": "Techno Chemicals",
  "name": "Techno Chemicals",

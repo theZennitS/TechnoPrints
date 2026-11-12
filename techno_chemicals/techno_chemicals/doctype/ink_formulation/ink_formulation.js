@@ -2,6 +2,17 @@
 // For license information, please see license.txt
 
 frappe.ui.form.on("Ink Formulation", {
+	setup: function(frm) {
+		frm.set_query("item_to_produce", function() {
+			return {
+				filters: {
+					is_stock_item: 1,
+					include_item_in_manufacturing: 1
+				}
+			};
+		});
+	},
+
 	refresh: function(frm) {
 		if (!frm.is_new() && frm.doc.docstatus === 1) {
 			frm.add_custom_button(__("Create ERPNext BOM"), function() {
@@ -27,6 +38,22 @@ frappe.ui.form.on("Ink Formulation", {
 			}
 		});
 	},
+
+	shade_match_request: function(frm) {
+		if (frm.doc.shade_match_request) {
+			frappe.db.get_doc("Shade Match Request", frm.doc.shade_match_request).then(smr => {
+				if (smr) {
+					if (!frm.doc.formula_name) {
+						frm.set_value("formula_name", smr.target_shade_name || smr.pantone_reference);
+					}
+					if (smr.commercial_item) {
+						frm.set_value("item_to_produce", smr.commercial_item);
+					}
+				}
+			});
+		}
+	},
+
 	base_batch_size_kg: function(frm) {
 		calculate_formulation_totals(frm);
 	}

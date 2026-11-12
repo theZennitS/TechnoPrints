@@ -194,6 +194,14 @@
    "unique": 0
   },
   {
+   "fieldname": "shade_match_request",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Shade Match Request",
+   "options": "Shade Match Request"
+  },
+  {
    "alignment": "",
    "allow_bulk_edit": 0,
    "allow_in_quick_entry": 0,
@@ -220,7 +228,7 @@
    "in_preview": 0,
    "in_standard_filter": 0,
    "is_virtual": 0,
-   "label": "Finished Ink Item",
+   "label": "Target Item",
    "length": 0,
    "make_attachment_public": 0,
    "mask": 0,
@@ -1131,5 +1139,8 @@
  "track_changes": 1,
  "track_seen": 0,
  "track_views": 0,
- "translated_doctype": 0
+ "translated_doctype": 0,
+ "field_order": [
+  "shade_match_request"
+ ]
 }
