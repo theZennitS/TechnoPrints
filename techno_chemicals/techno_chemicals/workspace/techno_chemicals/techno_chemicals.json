@@ -438,6 +438,27 @@
    "parentfield": "shortcuts",
    "parenttype": "Workspace",
    "doctype": "Workspace Shortcut"
+  },
+  {
+   "type": "DocType",
+   "link_to": "Item",
+   "label": "Item Master",
+   "icon": "package",
+   "color": "Grey"
+  },
+  {
+   "type": "DocType",
+   "link_to": "Material Request",
+   "label": "Material Request",
+   "icon": "clipboard-list",
+   "color": "Orange"
+  },
+  {
+   "type": "DocType",
+   "link_to": "Techno Chemicals Settings",
+   "label": "Techno Chemicals Settings",
+   "icon": "settings",
+   "color": "Purple"
   }
  ],
  "links": [
@@ -585,7 +606,7 @@
    "docstatus": 0,
    "idx": 6,
    "type": "Link",
-   "label": "Item Masters",
+   "label": "Item Master",
    "icon": null,
    "description": null,
    "hidden": 0,
@@ -598,6 +619,19 @@
    "onboard": 0,
    "is_query_report": 0,
    "link_count": 0,
+   "parent": "Techno Chemicals",
+   "parentfield": "links",
+   "parenttype": "Workspace",
+   "doctype": "Workspace Link"
+  },
+  {
+   "type": "Link",
+   "label": "Material Request",
+   "icon": null,
+   "description": null,
+   "hidden": 0,
+   "link_type": "DocType",
+   "link_to": "Material Request",
    "parent": "Techno Chemicals",
    "parentfield": "links",
    "parenttype": "Workspace",
@@ -1327,6 +1361,19 @@
    "onboard": 0,
    "is_query_report": 1,
    "link_count": 0,
+   "parent": "Techno Chemicals",
+   "parentfield": "links",
+   "parenttype": "Workspace",
+   "doctype": "Workspace Link"
+  },
+  {
+   "type": "Link",
+   "label": "Techno Chemicals Settings",
+   "icon": null,
+   "description": "Owner operational controls, default warehouses and guardrails",
+   "hidden": 0,
+   "link_type": "DocType",
+   "link_to": "Techno Chemicals Settings",
    "parent": "Techno Chemicals",
    "parentfield": "links",
    "parenttype": "Workspace",

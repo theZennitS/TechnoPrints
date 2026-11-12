@@ -15,6 +15,59 @@ def after_migrate():
 	setup_ink_qc_standards()
 	setup_qc_reference_type()
 	setup_parameter_full_form()
+	setup_techno_chemicals_settings()
+
+
+def setup_techno_chemicals_settings():
+	"""Populate default values in Techno Chemicals Settings if not set."""
+	if not frappe.db.exists("DocType", "Techno Chemicals Settings"):
+		return
+
+	settings = frappe.get_single("Techno Chemicals Settings")
+	updated = False
+
+	# Resolve Company
+	default_comp = frappe.db.get_single_value("Global Defaults", "default_company")
+	if not default_comp:
+		companies = frappe.get_all("Company", limit=1)
+		if companies:
+			default_comp = companies[0].name
+
+	if default_comp and settings.default_company != default_comp:
+		settings.default_company = default_comp
+		updated = True
+
+	comp_name = settings.default_company or "TechnoPrintsChemical"
+
+	def find_wh(keywords):
+		for kw in keywords:
+			wh = frappe.db.get_value(
+				"Warehouse",
+				{"company": comp_name, "is_group": 0, "name": ["like", f"%{kw}%"]},
+			)
+			if wh:
+				return wh
+		return None
+
+	wh_mapping = {
+		"default_raw_material_warehouse": ["Raw Material", "Stores"],
+		"default_wip_warehouse": ["Work In Progress", "WIP"],
+		"default_finished_goods_warehouse": ["Finished Inks", "Finished Goods"],
+		"default_qc_quarantine_warehouse": ["Quarantine", "QC"],
+		"default_scrap_warehouse": ["Scrap", "Waste"],
+	}
+
+	for field, keywords in wh_mapping.items():
+		if not getattr(settings, field, None):
+			found = find_wh(keywords)
+			if found:
+				setattr(settings, field, found)
+				updated = True
+
+	if updated:
+		settings.unlock()
+		settings.flags.ignore_permissions = True
+		settings.save()
 
 
 def setup_parameter_full_form():
@@ -131,6 +184,7 @@ def setup_default_workspace():
 			doc.set("items", [])
 			for it in sidebar_data.get("items", []):
 				doc.append("items", it)
+			doc.unlock()
 			doc.flags.ignore_permissions = True
 			doc.save()
 		else:

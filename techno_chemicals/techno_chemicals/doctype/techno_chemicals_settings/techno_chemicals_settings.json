@@ -1,0 +1,271 @@
+{
+ "actions": [],
+ "allow_rename": 0,
+ "autoname": "",
+ "beta": 0,
+ "creation": "2026-11-12 14:30:00.000000",
+ "custom": 0,
+ "docstatus": 0,
+ "doctype": "DocType",
+ "document_type": "Other",
+ "editable_grid": 0,
+ "engine": "InnoDB",
+ "field_order": [
+  "company_tab",
+  "default_company",
+  "column_break_comp",
+  "currency",
+  "warehouses_tab",
+  "default_raw_material_warehouse",
+  "default_wip_warehouse",
+  "column_break_wh1",
+  "default_finished_goods_warehouse",
+  "default_qc_quarantine_warehouse",
+  "default_scrap_warehouse",
+  "quality_tab",
+  "enforce_coa_before_dispatch",
+  "auto_raise_qc_on_return",
+  "auto_transfer_fg_on_qc_pass",
+  "column_break_qc",
+  "default_delta_e_tolerance",
+  "default_viscosity_cup",
+  "manufacturing_tab",
+  "max_solvent_loss_pct",
+  "column_break_mfg",
+  "auto_backflush_raw_materials",
+  "alerts_tab",
+  "owner_email",
+  "notify_owner_on_qc_reject",
+  "column_break_alerts",
+  "notify_owner_on_customer_return",
+  "enable_daily_production_digest"
+ ],
+ "fields": [
+  {
+   "fieldname": "company_tab",
+   "fieldtype": "Tab Break",
+   "label": "Company & General"
+  },
+  {
+   "default": "Techno Print Chemicals Pvt Ltd",
+   "fieldname": "default_company",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Default Company",
+   "options": "Company",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_comp",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "INR",
+   "fieldname": "currency",
+   "fieldtype": "Link",
+   "label": "Default Currency",
+   "options": "Currency"
+  },
+  {
+   "fieldname": "warehouses_tab",
+   "fieldtype": "Tab Break",
+   "label": "Warehouses & Storage"
+  },
+  {
+   "description": "Default storage for pigments, resins, solvents and additives",
+   "fieldname": "default_raw_material_warehouse",
+   "fieldtype": "Link",
+   "label": "Default Raw Material Warehouse",
+   "options": "Warehouse"
+  },
+  {
+   "description": "Shop floor mixing and bead milling work-in-progress staging",
+   "fieldname": "default_wip_warehouse",
+   "fieldtype": "Link",
+   "label": "Default WIP (Shop Floor) Warehouse",
+   "options": "Warehouse"
+  },
+  {
+   "fieldname": "column_break_wh1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "description": "Finished packed inks ready for dispatch to converters",
+   "fieldname": "default_finished_goods_warehouse",
+   "fieldtype": "Link",
+   "label": "Default Finished Goods Warehouse",
+   "options": "Warehouse"
+  },
+  {
+   "description": "Quarantine warehouse for incoming raw materials and customer returns awaiting QC clearance",
+   "fieldname": "default_qc_quarantine_warehouse",
+   "fieldtype": "Link",
+   "label": "Default QC Quarantine Warehouse",
+   "options": "Warehouse"
+  },
+  {
+   "description": "Scrap or wash solvent recovery warehouse",
+   "fieldname": "default_scrap_warehouse",
+   "fieldtype": "Link",
+   "label": "Default Scrap / Waste Warehouse",
+   "options": "Warehouse"
+  },
+  {
+   "fieldname": "quality_tab",
+   "fieldtype": "Tab Break",
+   "label": "Quality & Dispatch"
+  },
+  {
+   "default": "1",
+   "description": "Blocks warehouse staff from submitting a Delivery Note if the batch CoA has not been approved",
+   "fieldname": "enforce_coa_before_dispatch",
+   "fieldtype": "Check",
+   "label": "Enforce Approved CoA Before Dispatch"
+  },
+  {
+   "default": "1",
+   "description": "Automatically creates a Quality Inspection in Draft when a customer return is received into Quarantine",
+   "fieldname": "auto_raise_qc_on_return",
+   "fieldtype": "Check",
+   "label": "Auto-Raise QC on Customer Return"
+  },
+  {
+   "default": "1",
+   "description": "Enables 1-click stock transfer button on Returns to move passed ink back into Finished Goods",
+   "fieldname": "auto_transfer_fg_on_qc_pass",
+   "fieldtype": "Check",
+   "label": "Enable 1-Click Restock to Finished Goods on QC Pass"
+  },
+  {
+   "fieldname": "column_break_qc",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "1.5",
+   "description": "Maximum standard Delta E threshold vs master swatch for commercial batch release",
+   "fieldname": "default_delta_e_tolerance",
+   "fieldtype": "Float",
+   "label": "Standard Delta E Tolerance (Max)"
+  },
+  {
+   "default": "Ford Cup #4",
+   "description": "Default viscosity testing method for gravure and flexo inks",
+   "fieldname": "default_viscosity_cup",
+   "fieldtype": "Select",
+   "label": "Default Viscosity Method",
+   "options": "Ford Cup #4\nZahn Cup #2\nZahn Cup #3\nDIN 4 Cup\nB4 Cup\nBrookfield Rotational"
+  },
+  {
+   "fieldname": "manufacturing_tab",
+   "fieldtype": "Tab Break",
+   "label": "Manufacturing Guardrails"
+  },
+  {
+   "default": "5.0",
+   "description": "Threshold percentage for solvent evaporation and milling process loss per batch (%)",
+   "fieldname": "max_solvent_loss_pct",
+   "fieldtype": "Float",
+   "label": "Max Allowed Solvent Evaporation / Process Loss (%)"
+  },
+  {
+   "fieldname": "column_break_mfg",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "1",
+   "description": "Automatically backflush raw materials based on ink formulation BOM when Work Order completes",
+   "fieldname": "auto_backflush_raw_materials",
+   "fieldtype": "Check",
+   "label": "Auto-Backflush Raw Materials on Batch Completion"
+  },
+  {
+   "fieldname": "alerts_tab",
+   "fieldtype": "Tab Break",
+   "label": "Owner Alerts & Notifications"
+  },
+  {
+   "description": "Email address of the owner / managing director for executive alerts",
+   "fieldname": "owner_email",
+   "fieldtype": "Data",
+   "label": "Owner Alert Email",
+   "options": "Email"
+  },
+  {
+   "default": "1",
+   "description": "Instantly send an email alert to the owner if a batch fails Delta E, viscosity, or shade test",
+   "fieldname": "notify_owner_on_qc_reject",
+   "fieldtype": "Check",
+   "label": "Alert Owner Immediately on QC Batch Rejection"
+  },
+  {
+   "fieldname": "column_break_alerts",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "1",
+   "description": "Instantly notify the owner when a converter customer rejects and returns ink",
+   "fieldname": "notify_owner_on_customer_return",
+   "fieldtype": "Check",
+   "label": "Alert Owner Immediately on Customer Return"
+  },
+  {
+   "default": "0",
+   "description": "Send a daily 7:00 PM email summary of ink volume milled, CoAs released, and pending orders",
+   "fieldname": "enable_daily_production_digest",
+   "fieldtype": "Check",
+   "label": "Enable Daily 7:00 PM Executive Production Digest"
+  }
+ ],
+ "icon": "settings",
+ "idx": 1,
+ "issingle": 1,
+ "modified": "2026-11-12 14:30:00.000000",
+ "modified_by": "Administrator",
+ "module": "Techno Chemicals",
+ "name": "Techno Chemicals Settings",
+ "naming_rule": "Set by user",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 0,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 0,
+   "delete": 0,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "role": "Manufacturing Manager",
+   "share": 0,
+   "write": 1
+  },
+  {
+   "create": 0,
+   "delete": 0,
+   "email": 0,
+   "export": 0,
+   "print": 0,
+   "read": 1,
+   "role": "Quality Manager",
+   "share": 0,
+   "write": 0
+  }
+ ],
+ "quick_entry": 0,
+ "row_format": "Dynamic",
+ "show_name_in_global_search": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1
+}
+

@@ -719,8 +719,7 @@
    "sort_options": 0,
    "sticky": 0,
    "translatable": 0,
-   "unique": 0,
-   "description": "Efflux time in seconds using Ford Cup #4 at 25\u00b0C"
+   "unique": 0
   },
   {
    "alignment": "",
